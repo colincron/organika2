@@ -1,0 +1,12 @@
+h5, h6 {
+    display: inline-block;
+}
+
+h5 {
+    color: #2c6cf5
+}
+
+h6 { 
+    color: #8d8d8d;
+    margin-left: 20px;
+}
