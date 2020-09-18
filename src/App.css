@@ -29,7 +29,7 @@
 }
 
 .btn-quantity {
-  padding: 10px;
+  
   color: blue;
 }
 
@@ -44,10 +44,4 @@
 
 .todo {
   margin: 20px 0 0 20px;
-}
-
-.item {
-  width: 350px;
-  border: 1px solid black;
-  padding: 10px;
 }

@@ -6,9 +6,9 @@ import NavBar from './components/navBar';
 import Footer from './components/footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 //import Todo from './components/todo';
-import Item from './components/item';
-
-
+//import Item from './components/item';
+import Catalog from './components/catalog';
+// how the fuck do I import jQuery and shit for bootstrap?!
 
 
 function App() {
@@ -16,11 +16,8 @@ function App() {
   return (
     <React.Fragment>
       <NavBar></NavBar>
-      <div className="App container-fluid">
-        
-        <h1>Howdy, React!</h1>
-        <Item></Item>
-        
+      <div className="App container-fluid"> 
+        <Catalog></Catalog>
       </div>
       <Footer></Footer>
     </React.Fragment>

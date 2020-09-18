@@ -1,3 +1,12 @@
+.item {
+    width: 250px;
+    height: 345px;
+    display: inline-block;
+    padding: 0 10px 10px 10px;
+    margin: 10px;
+    border: 1px solid #cecece;
+}
+
 h5, h6 {
     display: inline-block;
 }
@@ -9,4 +18,22 @@ h5 {
 h6 { 
     color: #8d8d8d;
     margin-left: 20px;
+}
+
+.quantityPicker, .btn-add {
+    display: inline-block;
+    
+}
+
+.btn-add {
+    margin-left: 40px;
+}
+
+.quantityPicker button{
+    margin: 10px;
+}
+
+.item img {
+    height: 200px;
+    width: 200px;
 }
