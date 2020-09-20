@@ -1,27 +1,58 @@
 import React, { Component } from 'react';
 import Item from './item';
 import ItemService from '../services/itemService';
+import './category.css'
 
 class Catalog extends Component {
     state = { 
         items: [],
+        categories: [],
+        selectedCategory: "",
      }
+
     render() { 
-        //console.log("Rendering...")
+        let itemsToDisplay = this.state.items;
+        if(this.state.selectedCategory !== ""){
+            itemsToDisplay = itemsToDisplay.filter(cat => cat.category === this.state.selectedCategory);
+        }
+
         return (  
             <div className="catalog-page">
-                <h2>Our amazing catalog</h2>
+                <h2>Organika Market</h2>
 
-                <div className="categories"></div>
+                <div className="categories">
+
+                    <div 
+                        className="category" 
+                        onClick={() => this.setState({ selectedCategory: "" })} 
+                        key="allItems">
+                    <h6>All Items</h6>                        </div>
+
+                    {
+                        this.state.categories.map((category) => (
+                            <div 
+                            className="category" 
+                            onClick={() => this.selectCategory(category)} 
+                            key={category}>
+                                <h6>{category}</h6>
+                            </div>))
+                    }
+                </div>
 
                 <div className="products">
                     {
-                        this.state.items.map(i => <Item key={i.id} product={i}></Item>)
+                        itemsToDisplay.map(i => <Item key={i.id} product={i}></Item>)
                     }
                 </div>
             </div>
 
         );
+    }
+
+    selectCategory = (catName) => {
+        //console.log("category clicked", catName);
+        this.setState({ selectedCategory: catName });
+        //console.log(this.state.selectedCategory);
     }
 
     componentDidMount() {
@@ -31,6 +62,19 @@ class Catalog extends Component {
         
         // to modify state use setState
         this.setState({ items: data });
+
+        //console.log(data);
+        // identify the unique categories from data
+        let cats = []
+        for(let i = 0; i < data.length;i++){
+            let item = data[i].category;
+            if(!cats.includes(item)){
+                cats.push(item);
+                //console.log(cats);
+            }
+        }
+        // set it to the state
+        this.setState({ categories: cats })
     }
 }
  

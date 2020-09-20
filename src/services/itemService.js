@@ -21,10 +21,10 @@ var data = [
         id: "5f40a6baa9e6e22fa1d5fac4",
         price: 32.00,
         stock: 20,
-        title: "Blueberry",
-        image: "img-15.jpg",
+        title: "Meat Cubes",
+        image: "img-9.jpg",
         discount: 0,
-        category: "Fruit"
+        category: "Exotic Meats"
     },
     {
         id: "5f40a6baf0f068a497921d29",
@@ -51,6 +51,7 @@ var data = [
         title: "Orange",
         image: "product-10.jpg",
         discount: 0,
+        minimum: 11,
         category: "Fruit"
     },
     {
@@ -60,6 +61,7 @@ var data = [
         title: "Egg",
         image: "img-15.jpg",
         discount: 12,
+        minimum: 7,
         category: "Dairy & Eggs"
     },
     {
@@ -69,6 +71,7 @@ var data = [
         title: "Orange Juice",
         image: "product-15.jpg",
         discount: 12,
+        minimum: 23,
         category: "Beverages"
     },
 ];

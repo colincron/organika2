@@ -1,10 +1,11 @@
 .item {
-    width: 250px;
+    width: 300px;
     height: 345px;
     display: inline-block;
     padding: 0 10px 10px 10px;
     margin: 10px;
     border: 1px solid #cecece;
+    background-color: white;
 }
 
 h5, h6 {
