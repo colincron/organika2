@@ -5,22 +5,29 @@ import NavBar from './components/navBar';
 //import QuantityPicker from './components/quantityPicker';
 import Footer from './components/footer';
 import "bootstrap/dist/css/bootstrap.min.css";
-//import Todo from './components/todo';
+import Todo from './components/todo';
 //import Item from './components/item';
 import Catalog from './components/catalog';
-// how the fuck do I import jQuery and shit for bootstrap?!
+import Home from './components/home';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Cart from './components/cart';
 
 
 function App() {
 
   return (
-    <React.Fragment>
+    <BrowserRouter>
       <NavBar></NavBar>
       <div className="App container-fluid"> 
-        <Catalog></Catalog>
+      <Switch>
+        <Route path="/" exact component={Home} ></Route>
+        <Route path="/catalog" component={Catalog} ></Route>
+        <Route path="/todo" component={Todo}></Route>
+        <Route path="/cart" component={Cart}></Route>
+      </Switch>
       </div>
       <Footer></Footer>
-    </React.Fragment>
+    </BrowserRouter>
   );
 }
 

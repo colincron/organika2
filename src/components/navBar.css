@@ -1,0 +1,24 @@
+@media(min-width: 375px){
+    .cart-icon {
+        margin-right: 10px;
+
+    }
+}
+
+
+.cart-button:hover {
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+}
+
+.cart-icon {
+    margin-right: 10px;
+    
+}
+
+
+.counter {
+    margin-left: 10px;
+    display: none;
+}
+

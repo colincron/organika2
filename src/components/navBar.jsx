@@ -1,5 +1,8 @@
 // imrc
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
+import "font-awesome/css/font-awesome.css";
+import "./navBar.css"
 
 // cc
 class NavBar extends Component {
@@ -7,12 +10,12 @@ class NavBar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-expand-lg"
+        className="navbar navbar-expand"
         style={{ backgroundColor: "#fff" }}
       >
-        <a className="navbar-brand" href="/#">
-          Navbar
-        </a>
+        <Link className="navbar-brand" to="/">
+          Organika
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -27,31 +30,26 @@ class NavBar extends Component {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="/#">
-                Home <span className="sr-only">(current)</span>
-              </a>
+            <li className="nav-item">
+              <Link className="nav-link" to="/catalog">
+                Catalog
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/#">
-                Link
-              </a>
+              <Link className="nav-link" to="/todo">
+                Todo
+              </Link>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            ></input>
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
+          <div className="">
+            <Link
+              className="btn btn-outline-info cart-button"
+              to="/cart">
+                <i className="fa fa-shopping-cart cart-icon"></i>
+              Cart 
+              <span className="badge badge-success counter">12</span>
+            </Link>
+          </div>
         </div>
       </nav>
     );

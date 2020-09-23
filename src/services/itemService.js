@@ -3,7 +3,7 @@ var data = [
         id: "5f40a6baac77a903d8f682c6",
         price: 12.32,
         stock: 13,
-        title: "Cabbage",
+        title: "Cauliflower",
         image: "img-1.jpg",
         discount: 5,
         category: "Vegetable"

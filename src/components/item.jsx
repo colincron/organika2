@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import QuantityPicker from "./quantityPicker";
 import "./item.css";
+import "font-awesome/css/font-awesome.css";
 
 class Item extends Component {
   state = {
@@ -22,7 +23,7 @@ class Item extends Component {
           value={this.state.quantity}
           minimum={this.state.minimum}
           onValueChange={ (qnt) => this.handleQuantityChange(qnt) }></QuantityPicker>
-        <button className="btn btn-sm btn-primary btn-add">Add</button>
+        <i className="fa fa-cart-plus add-icon"></i>
       </div>
     );
   }
