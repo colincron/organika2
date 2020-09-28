@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../store/actions';
 
 class Todo extends Component {
     state = { 
         todoText: "",
-        todoList: [],
     };
     
     render() { 
@@ -20,7 +21,7 @@ class Todo extends Component {
                 </div>
 
                 <div className="list"> 
-                    {this.state.todoList.map( t => <div className="item" >{t}</div>)} 
+                    {this.props.todos.map( t => <div className="item" key={t} >{t}</div>)} 
                     <hr></hr>
                     {this.getTodoCount()}
                 </div>
@@ -29,7 +30,7 @@ class Todo extends Component {
     }
 
     getTodoCount = () => {
-        let count = this.state.todoList.length;
+        let count = this.props.todos.length;
         if(count === 1){
             return <label>We have 1 element in the list</label>;
         }else{
@@ -44,16 +45,19 @@ class Todo extends Component {
 
     addTodo = () => {  
         if(this.state.todoText){
-            let todoList = [...this.state.todoList, this.state.todoText];
-            // this.setState({ todoList: todoList, todoText: "" });
-            this.setState({ todoList, todoText: "" });
+            this.props.addTodo(this.state.todoText);
+            this.setState({todoText: ""});
         }  
     }
 }
 
-
+const mapStateToProps = (state) => {
+    return{
+        todos: state.todos,
+    }
+};
  
-export default Todo;
+export default connect(mapStateToProps, { addTodo } )(Todo);
 
 
 // create an item component for online store

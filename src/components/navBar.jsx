@@ -2,7 +2,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import "font-awesome/css/font-awesome.css";
-import "./navBar.css"
+import "./navBar.css";
+import { connect } from 'react-redux';
 
 // cc
 class NavBar extends Component {
@@ -47,7 +48,7 @@ class NavBar extends Component {
               to="/cart">
                 <i className="fa fa-shopping-cart cart-icon"></i>
               Cart 
-              <span className="badge badge-success counter">12</span>
+              <span className="badge badge-success counter">{this.props.count}</span>
             </Link>
           </div>
         </div>
@@ -56,7 +57,13 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+    count: state.count,
+  };
+};
+
+export default connect( mapStateToProps, null )(NavBar);
 
 // Advanced ES6 Topics
 // Arrow function,
