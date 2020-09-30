@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../store/actions';
+import "font-awesome/css/font-awesome.css";
+import "./todo.css"
 
 class Todo extends Component {
     state = { 
@@ -17,14 +19,19 @@ class Todo extends Component {
                         value={this.state.todoText} 
                         onChange={this.onTextChange}
                         placeholder="Todo text"></input>
-                    <button onClick={this.addTodo} className="btn btn-primary">Add</button>
+                    <button onClick={this.addTodo} className="btn btn-primary add-button">Add</button>
                 </div>
 
-                <div className="list"> 
-                    {this.props.todos.map( t => <div className="item" key={t} >{t}</div>)} 
+                <ul className="list"> 
+                    {this.props.todos.map( t => 
+                    <li className="txt-task" key={t} >
+                        
+                        <p>{t}</p>
+                        <i class="fa fa-star important"></i>
+                    </li>)} 
                     <hr></hr>
                     {this.getTodoCount()}
-                </div>
+                </ul>
             </div>
          );
     }

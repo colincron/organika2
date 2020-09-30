@@ -65,10 +65,10 @@ class Catalog extends Component {
     //console.log(this.state.selectedCategory);
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     // perfect place to get data from server/ DB / AJAX call
     let service = new ItemService();
-    const data = service.getProducts();
+    const data = await service.getProducts();
 
     // to modify state use setState
     this.setState({ items: data });

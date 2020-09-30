@@ -14,6 +14,9 @@ class Home extends Component {
         <p>
           We believe alliteration makes food taste better.
         </p>
+        <p className="text-danger font-weight-bold">
+          Best viewed on a desktop. Not mobile optimized.
+        </p>
         <p className="lead">
           <Link className="btn btn-primary btn-lg" to="/catalog" role="button">
             Catalog

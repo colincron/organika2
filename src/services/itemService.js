@@ -1,3 +1,6 @@
+import axios from 'axios';
+
+/*
 var data = [
     {
         id: "5f40a6baac77a903d8f682c6",
@@ -75,14 +78,41 @@ var data = [
         category: "Beverages"
     },
 ];
+*/
+
 
 class ItemService {
+    serverUrl = 'http://fsdi.azurewebsites.net/api'
 
-    getProducts() {
+    async getProducts() {
         // retrieve prods from backend
         // http request (next unit)
-        return data;
+        //return data;
+
+        const resp = await axios.get(this.serverUrl+'/products');
+        
+        //resp.then(data => console.log("We got the response from server"));
+        
+        //console.log("Thank you!")
+
+        return resp.data;
+    }
+
+    // cart = array of products
+    async saveCart(userName, cart){
+        let data = {
+            user: userName,
+            total: 0,
+            products: cart,
+        }
+        const resp = await axios.post(this.serverUrl+'/cart', data);
+        console.log(resp);
     }
 }
  
 export default ItemService;
+
+/**
+ * Async programming:
+ *  
+ */

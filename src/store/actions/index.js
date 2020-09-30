@@ -12,9 +12,16 @@ export const addTodo = (text) => {
     };
 };
 
-export const addToCart = (quantity) => {
+export const addProduct = (product) => {
     return {
-        type: 'ADD_TO_CART',
-        payload: quantity,
-    }
-}
+        type: 'ADD_PRODUCT',
+        payload: product,
+    };
+};
+
+export const removeProduct = (productId) => {
+    return {
+        type: "REMOVE_PRODUCT",
+        payload: productId,
+    };
+};

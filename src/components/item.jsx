@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import QuantityPicker from "./quantityPicker";
 import "./item.css";
 import "font-awesome/css/font-awesome.css";
-import { incrementCartCounter, addToCart } from '../store/actions/index';
+import { incrementCartCounter, addProduct } from '../store/actions/index';
 import { connect } from 'react-redux';
 
 
@@ -38,7 +38,8 @@ class Item extends Component {
       product: this.props.product,
       quantity: this.state.quantity,
     }
-    this.props.addToCart(addedProduct);
+    this.props.addProduct(addedProduct);
+    this.props.incrementCartCounter();
   }
 
   /**
@@ -53,7 +54,13 @@ class Item extends Component {
   handleQuantityChange = (qnt) => {
     //console.log("Quantity: " + qnt);
     this.setState({ quantity: qnt });
-  }
+  };
 }
 
-export default connect(null, { incrementCartCounter, addToCart } )(Item);
+let mapStateToProps = (state) => {
+  return {
+    cart: state.cart
+  };
+};
+
+export default connect(mapStateToProps, { incrementCartCounter, addProduct} )(Item);

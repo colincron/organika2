@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { incrementCartCounter } from '../store/actions/index';
+import ItemInCart from './itemInCart';
 
 class Cart extends Component {
     state = {  }
@@ -11,9 +12,12 @@ class Cart extends Component {
         <div>
 
         <h1>Shopping Cart:</h1>
-        <h4>Item you added to the cart will **Magically** appear here.</h4>
-
-            <button className="btn btn-warning" onClick={this.testDispatch}>Test Dispatch</button>
+        <h3>There are {this.props.products.length} items in your cart</h3>
+        
+           <div className="itemsInCart">{this.props.products.map( product =>
+           <ItemInCart key={product.product.id} info={product}></ItemInCart>)}
+           </div>
+          
         </div>
         
         
@@ -25,5 +29,11 @@ class Cart extends Component {
         this.props.incrementCartCounter(); // dispatch an action to the store
     };
 }
+
+const mapStateToProps = (state) => {
+    return {
+      products: state.cart
+    };
+  };
  
-export default connect(null, { incrementCartCounter } )(Cart);
+export default connect(mapStateToProps, { incrementCartCounter } )(Cart);
